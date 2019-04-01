@@ -1,0 +1,64 @@
+﻿@model HXSail.Models.Province
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Province</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProvinceCode" class="control-label"></label>
+                <input asp-for="ProvinceCode" class="form-control" />
+                <span asp-validation-for="ProvinceCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryCode" class="control-label"></label>
+                <select asp-for="CountryCode" class ="form-control" asp-items="ViewBag.CountryCode"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxCode" class="control-label"></label>
+                <input asp-for="TaxCode" class="form-control" />
+                <span asp-validation-for="TaxCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaxRate" class="control-label"></label>
+                <input asp-for="TaxRate" class="form-control" />
+                <span asp-validation-for="TaxRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Capital" class="control-label"></label>
+                <input asp-for="Capital" class="form-control" />
+                <span asp-validation-for="Capital" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IncludesFerderalTax" /> @Html.DisplayNameFor(model => model.IncludesFerderalTax)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

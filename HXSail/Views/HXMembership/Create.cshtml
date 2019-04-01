@@ -1,0 +1,57 @@
+﻿@model HXSail.Models.Membership
+
+@{
+    ViewData["Title"] = "Add a Membership for Chesterfield, Stanley & Mabel";
+}
+<h2>Add a Membership for Chesterfield, Stanley & Mabel</h2>
+
+<h4>Membership</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group" hidden>
+                <label asp-for="MemberId" class="control-label" ></label>
+                <select asp-for="MemberId" class ="form-control" asp-items="ViewBag.MemberId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" value="@DateTime.Now.Year"/>
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MembershipTypeName" class="control-label"></label>
+                <select asp-for="MembershipTypeName" class ="form-control" asp-items="ViewBag.MembershipTypeName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fee" class="control-label"></label>
+                <input asp-for="Fee" class="form-control" value="@ViewBag.Fee"/>
+                <span asp-validation-for="Fee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comments" class="control-label"></label>
+                <input asp-for="Comments" class="form-control" />
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Paid" /> @Html.DisplayNameFor(model => model.Paid)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

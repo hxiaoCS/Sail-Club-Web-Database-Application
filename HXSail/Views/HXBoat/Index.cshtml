@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HXSail.Models.Boat>
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Boats for " + Context.Session.GetString("fullName");
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BoatClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HullColour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SailNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HullLength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BoatType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParkingCodeNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BoatClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HullColour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SailNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HullLength)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BoatType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkingCodeNavigation.ParkingCode)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BoatId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BoatId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BoatId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

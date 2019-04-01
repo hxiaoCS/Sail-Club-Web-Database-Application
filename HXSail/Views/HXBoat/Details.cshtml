@@ -1,0 +1,60 @@
+﻿@model HXSail.Models.Boat
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Details of Boats for " + Context.Session.GetString("fullName");
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>Boat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BoatClass)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BoatClass)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HullColour)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HullColour)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SailNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SailNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HullLength)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HullLength)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BoatType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BoatType.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ParkingCodeNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ParkingCodeNavigation.ParkingCode)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BoatId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

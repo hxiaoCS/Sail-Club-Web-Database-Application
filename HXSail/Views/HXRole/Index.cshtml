@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+@{
+    ViewData["Title"] = "List of User Roles";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h3>Create New Role</h3>
+<form asp-controller="HXRole" asp-action="CreateRole">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input class="form-control" type="text" name="roleName" />
+    <input type="submit" value="Create Role" class="bth btn-default" />
+</form>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                <a asp-action="UsersInRole" asp-route-roleId="@item.Id" asp-route-roleName="@item.Name">
+                    Users in Role
+                </a>
+                @if (item.Name != "administrators")
+                {
+                    <text> | </text>
+                    <a asp-action="DeleteRole" asp-route-roleId="@item.Id" asp-route-roleName="@item.Name">Delete Role</a>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+

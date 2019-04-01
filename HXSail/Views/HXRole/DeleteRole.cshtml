@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http;
+@model IdentityRole
+@{
+    ViewData["Title"] = "Delete role";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Are you sure you want to delete the role: @Context.Session.GetString("roleName")?</h3>
+
+<div>
+    <form asp-action="DeleteRole">
+        <div class="form-group">
+            <label asp-for="NormalizedName" class="control-label"></label>
+            <input asp-for="NormalizedName" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Users in this Role</label>
+            <select class="form-control" asp-items="ViewBag.usersInRole" readonly></select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="DeleteRole" class="btn btn-default" />
+        </div>
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+
+

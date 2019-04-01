@@ -1,0 +1,8 @@
+C:\Users\billx\Desktop\PROG 2230\HXSail\HXClassLibrary\bin\Debug\netcoreapp2.1\HXClassLibrary.deps.json
+C:\Users\billx\Desktop\PROG 2230\HXSail\HXClassLibrary\bin\Debug\netcoreapp2.1\HXClassLibrary.dll
+C:\Users\billx\Desktop\PROG 2230\HXSail\HXClassLibrary\bin\Debug\netcoreapp2.1\HXClassLibrary.pdb
+C:\Users\billx\Desktop\PROG 2230\HXSail\HXClassLibrary\obj\Debug\netcoreapp2.1\HXClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\billx\Desktop\PROG 2230\HXSail\HXClassLibrary\obj\Debug\netcoreapp2.1\HXClassLibrary.AssemblyInfoInputs.cache
+C:\Users\billx\Desktop\PROG 2230\HXSail\HXClassLibrary\obj\Debug\netcoreapp2.1\HXClassLibrary.AssemblyInfo.cs
+C:\Users\billx\Desktop\PROG 2230\HXSail\HXClassLibrary\obj\Debug\netcoreapp2.1\HXClassLibrary.dll
+C:\Users\billx\Desktop\PROG 2230\HXSail\HXClassLibrary\obj\Debug\netcoreapp2.1\HXClassLibrary.pdb

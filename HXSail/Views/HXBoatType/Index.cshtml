@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HXSail.Models.BoatType>
+
+@{
+    ViewData["Title"] = "List of Boat Types";
+}
+
+<h2>List of Boat Types</h2>
+
+<p>
+    @if (User.IsInRole("administrators") || User.IsInRole("staff"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chargeable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chargeable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @if (User.IsInRole("administrators") || User.IsInRole("staff"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.BoatTypeId">Edit</a> <text> | </text>
+                    <a asp-action="Delete" asp-route-id="@item.BoatTypeId">Delete</a> <text> | </text>
+                }
+                <a asp-action="Details" asp-route-id="@item.BoatTypeId">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

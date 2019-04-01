@@ -1,0 +1,42 @@
+﻿@model HXSail.Models.Country
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Country</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalPattern)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostalPattern)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhonePattern)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhonePattern)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FederalSalesTax)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FederalSalesTax)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CountryCode">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

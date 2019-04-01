@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<HXSail.Models.ApplicationUser>
+@*@{
+
+    Boolean isAdmin = User.IsInRole("administrators");
+    Boolean isMember = User.IsInRole("members");
+    Boolean isAuthticated = User.Identity.IsAuthenticated;
+    //Boolean isLocked = User;
+    //Boolean isLocallyAuthenticated;
+ }*@
+@{
+    ViewData["Title"] = "List of Users";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>In Member Role?</th>
+        <th>In Admins Role?</th>
+        <th>Locally?</th>
+        <th><a asp-action="Index" asp-route-sortingLocked="true">Locked?</a></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+
+    <tr>
+        <td>@item.UserName</td>
+        <td>@item.Email</td>
+        <td>@Html.DisplayFor(modelItem => item.IsMember)</td>
+        <td>@Html.DisplayFor(modelItem => item.IsAdmin)</td>
+        <td>@Html.DisplayFor(modelItem => item.IsLocal)</td>
+        <td>@Html.DisplayFor(modelItem => item.IsLocked)</td>
+        <td>
+            <a asp-controller="HXUser" asp-action="LockOrUnlock" asp-route-userId="@item.Id" asp-route-userName="@item.UserName">lock/Unlock</a> |
+            @if (User.Identity.Name != item.UserName)
+            {
+                <a asp-controller="HXUser" asp-action="DeleteUsers" asp-route-userId="@item.Id" asp-route-userName="@item.UserName">Delete</a> <text> | </text>
+            } 
+            <a asp-controller="HXUser" asp-action="ResetPassword" asp-route-userId="@item.Id" asp-route-userName="@item.UserName">Reset Password</a> |
+            <a asp-controller="HXUser" asp-action="AddUserToMember" asp-route-userId="@item.Id" asp-route-userName="@item.UserName">Add to Members</a>
+        </td>
+    </tr>
+
+    }
+</table>

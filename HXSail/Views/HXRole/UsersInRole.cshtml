@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http;
+@model IEnumerable<IdentityUser>
+@{
+    ViewData["Title"] = "Users In Role: " + Context.Session.GetString("roleName");
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.UserName</td>
+            <td>@item.Email</td>
+            <td>
+                @if (Context.Session.GetString("roleName") != "administrators" && User.IsInRole("administrators"))
+                {
+                    <a asp-action="RemoveFromRole" asp-route-userId="@item.Id" asp-route-userName="@item.UserName" asp-route-roleName="@Context.Session.GetString("roleName")">
+                        Remove
+                    </a>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<form asp-controller="HXRole" asp-action="AddNotInRoleUser">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" value="@Context.Session.GetString("roleName")" name="roleName" />
+    <div class="form-group">
+        <label class="control-label">User</label>
+        <select class="form-control" asp-items="ViewBag.usersNotInRole" name="userId"></select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add" class="bth btn-default" />
+    </div>
+</form>

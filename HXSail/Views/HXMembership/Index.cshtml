@@ -1,0 +1,65 @@
+﻿@model IEnumerable<HXSail.Models.Membership>
+
+@{
+    ViewData["Title"] = "Memberships for Chesterfield, Stanley & Mabel";
+}
+
+<h2>Memberships for Chesterfield, Stanley & Mabel</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembershipTypeNameNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MembershipTypeNameNavigation.MembershipTypeName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MembershipId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MembershipId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MembershipId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

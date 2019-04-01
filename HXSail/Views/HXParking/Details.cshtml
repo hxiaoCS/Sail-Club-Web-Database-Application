@@ -1,0 +1,30 @@
+﻿@model HXSail.Models.Parking
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Parking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualBoatId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActualBoatId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BoatType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BoatType.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ParkingCode">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

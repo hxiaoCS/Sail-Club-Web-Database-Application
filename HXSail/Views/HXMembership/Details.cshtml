@@ -1,0 +1,54 @@
+﻿@model HXSail.Models.Membership
+
+@{
+    ViewData["Title"] = "Details of a Membership for Chesterfield, Stanley & Mabel";
+}
+
+<h2>Details of a Membership for Chesterfield, Stanley & Mabel</h2>
+
+<div>
+    <h4>Membership</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Paid)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Paid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Member.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MembershipTypeNameNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MembershipTypeNameNavigation.MembershipTypeName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MembershipId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

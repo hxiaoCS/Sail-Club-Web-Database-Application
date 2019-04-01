@@ -1,0 +1,76 @@
+﻿@model IEnumerable<HXSail.Models.Member>
+
+@{
+    ViewData["Title"] = "Member List of " + TempData["fullName"];
+}
+
+<h2>Member List</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomePhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearJoined)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskExempt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UseCanadaPost)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-controller="HXMembership" asp-action="index"
+                   asp-route-memberId="@item.MemberId"
+                   asp-route-fullName="@item.FullName">
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearJoined)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskExempt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UseCanadaPost)
+            </td>
+            <td>
+                <a asp-controller="HXBoat" asp-action="index" asp-route-memberId="@item.MemberId"
+                   asp-route-fullName="@item.FullName">Manage Boats</a> |
+                <a asp-action="Edit" asp-route-id="@item.MemberId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MemberId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MemberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

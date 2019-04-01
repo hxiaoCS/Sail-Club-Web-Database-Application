@@ -1,0 +1,93 @@
+﻿@model HXSail.Models.AnnualFeeStructure
+
+@{
+    ViewData["Title"] = "Delete an Annual Fee Record";
+}
+
+<h2>Delete an Annual Fee Record</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AnnualFeeStructure</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AnnualFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlyDiscountedFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EarlyDiscountedFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlyDiscountEndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EarlyDiscountEndDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RenewDeadlineDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RenewDeadlineDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskExemptionFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TaskExemptionFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondBoatFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SecondBoatFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ThirdBoatFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ThirdBoatFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ForthAndSubsequentBoatFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ForthAndSubsequentBoatFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NonSailFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NonSailFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NewMember25DiscountDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NewMember25DiscountDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NewMember50DiscountDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NewMember50DiscountDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NewMember75DiscountDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NewMember75DiscountDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Year" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,93 @@
+﻿@model HXSail.Models.AnnualFeeStructure
+
+@{
+    ViewData["Title"] = "Create an New Annual Fee Record";
+}
+
+<h2>Create an New Annual Fee Record"</h2>
+
+<h4>AnnualFeeStructure</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" value="@DateTime.Now.Year"/>
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnnualFee" class="control-label"></label>
+                <input asp-for="AnnualFee" class="form-control" />
+                <span asp-validation-for="AnnualFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EarlyDiscountedFee" class="control-label"></label>
+                <input asp-for="EarlyDiscountedFee" class="form-control" />
+                <span asp-validation-for="EarlyDiscountedFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EarlyDiscountEndDate" class="control-label"></label>
+                <input asp-for="EarlyDiscountEndDate" class="form-control" />
+                <span asp-validation-for="EarlyDiscountEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RenewDeadlineDate" class="control-label"></label>
+                <input asp-for="RenewDeadlineDate" class="form-control" />
+                <span asp-validation-for="RenewDeadlineDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskExemptionFee" class="control-label"></label>
+                <input asp-for="TaskExemptionFee" class="form-control" />
+                <span asp-validation-for="TaskExemptionFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondBoatFee" class="control-label"></label>
+                <input asp-for="SecondBoatFee" class="form-control" />
+                <span asp-validation-for="SecondBoatFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThirdBoatFee" class="control-label"></label>
+                <input asp-for="ThirdBoatFee" class="form-control" />
+                <span asp-validation-for="ThirdBoatFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForthAndSubsequentBoatFee" class="control-label"></label>
+                <input asp-for="ForthAndSubsequentBoatFee" class="form-control" />
+                <span asp-validation-for="ForthAndSubsequentBoatFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NonSailFee" class="control-label"></label>
+                <input asp-for="NonSailFee" class="form-control" />
+                <span asp-validation-for="NonSailFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewMember25DiscountDate" class="control-label"></label>
+                <input asp-for="NewMember25DiscountDate" class="form-control" />
+                <span asp-validation-for="NewMember25DiscountDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewMember50DiscountDate" class="control-label"></label>
+                <input asp-for="NewMember50DiscountDate" class="form-control" />
+                <span asp-validation-for="NewMember50DiscountDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewMember75DiscountDate" class="control-label"></label>
+                <input asp-for="NewMember75DiscountDate" class="form-control" />
+                <span asp-validation-for="NewMember75DiscountDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

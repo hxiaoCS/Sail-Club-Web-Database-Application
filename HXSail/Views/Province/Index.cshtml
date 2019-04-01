@@ -1,0 +1,65 @@
+﻿@model IEnumerable<HXSail.Models.Province>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capital)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncludesFerderalTax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryCodeNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capital)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncludesFerderalTax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryCodeNavigation.CountryCode)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProvinceCode">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProvinceCode">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProvinceCode">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

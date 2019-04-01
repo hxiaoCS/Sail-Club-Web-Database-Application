@@ -1,0 +1,90 @@
+﻿@model HXSail.Models.AnnualFeeStructure
+
+@{
+    ViewData["Title"] = "Details of an Annual Fee Record";
+}
+
+<h2>Details of an Annual Fee Record</h2>
+
+<div>
+    <h4>AnnualFeeStructure</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AnnualFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlyDiscountedFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EarlyDiscountedFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlyDiscountEndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EarlyDiscountEndDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RenewDeadlineDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RenewDeadlineDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TaskExemptionFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TaskExemptionFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondBoatFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SecondBoatFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ThirdBoatFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ThirdBoatFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ForthAndSubsequentBoatFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ForthAndSubsequentBoatFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NonSailFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NonSailFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NewMember25DiscountDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NewMember25DiscountDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NewMember50DiscountDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NewMember50DiscountDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NewMember75DiscountDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NewMember75DiscountDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Year">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

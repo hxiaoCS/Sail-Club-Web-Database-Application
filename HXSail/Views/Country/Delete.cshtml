@@ -1,0 +1,45 @@
+﻿@model HXSail.Models.Country
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Country</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalPattern)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostalPattern)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhonePattern)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhonePattern)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FederalSalesTax)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FederalSalesTax)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CountryCode" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

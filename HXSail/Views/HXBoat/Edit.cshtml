@@ -1,0 +1,60 @@
+﻿@model HXSail.Models.Boat
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Edit Boats for " + Context.Session.GetString("fullName");
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Boat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BoatId" />
+            <input type="hidden" asp-for="MemberId" class="form-control" value="@Context.Session.GetString("memberId")" />
+            <div class="form-group">
+                <label asp-for="BoatClass" class="control-label"></label>
+                <input asp-for="BoatClass" class="form-control" />
+                <span asp-validation-for="BoatClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HullColour" class="control-label"></label>
+                <input asp-for="HullColour" class="form-control" />
+                <span asp-validation-for="HullColour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SailNumber" class="control-label"></label>
+                <input asp-for="SailNumber" class="form-control" />
+                <span asp-validation-for="SailNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HullLength" class="control-label"></label>
+                <input asp-for="HullLength" class="form-control" />
+                <span asp-validation-for="HullLength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BoatTypeId" class="control-label"></label>
+                <select asp-for="BoatTypeId" class="form-control" asp-items="ViewBag.BoatTypeId"></select>
+                <span asp-validation-for="BoatTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParkingCode" class="control-label"></label>
+                <select asp-for="ParkingCode" class="form-control" asp-items="ViewBag.ParkingCode"></select>
+                <span asp-validation-for="ParkingCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
